@@ -13,15 +13,17 @@ class ControladorGeneral{
     public var usuarios: [Usuario]
     
     init(){
-        mensajes = []
-        usuarios = []
+        mensajes = mensajes_falsos
+        usuarios = usuarios_falsos
     }
     
     func agregar_mensajes(){
-        mensajes += [Mensaje(texto: "mensaje de \(mensajes.count +1)", id_usuario: nil)]
+        mensajes += [Mensaje(texto: "mensaje de: \(mensajes.count + 1)", id_usuario: nil)]
     }
     
     func agregar_usuarios(_ usuario_nuevo: Usuario){
         usuarios.append(usuario_nuevo)
+        
+        print("la cantidad actual de usuarios es \(usuarios.count)")
     }
 }

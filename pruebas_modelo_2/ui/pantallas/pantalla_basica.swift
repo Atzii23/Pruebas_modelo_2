@@ -14,19 +14,38 @@ struct pantalla_basica: View {
         Text("Esta pantalla me mueve a la siguiente opcion")
         
         Spacer()
-        
-        ForEach(controlador.mensajes, id: \.self) { mensaje in
-            
-            NavigationLink{
-                Text("Esta es la pantalla del \(mensaje)")
-            }
-            label:{
-                Text("Apachurra para ver mensaje \(mensaje.texto)")
-            }
-            .onAppear{
-                print("hola, soy vista de: \(mensaje)")
+        ScrollView(.horizontal){
+            LazyHStack{
+                ForEach(controlador.usuarios){usuario in
+                    NavigationLink{
+                        Text("Esta es la pantalla del \(usuario)")
+                    }
+                    label:{
+                        EtiquetaUsuarioPerfil(usuario:usuario)
+                        .padding(3)
+                        
+                    }
+                    .buttonStyle(.plain)
+                }
             }
         }
+        
+        ScrollView(.vertical){
+                    LazyVStack{
+                        ForEach(controlador.mensajes){ mensaje in
+                            NavigationLink {
+                                Text("Esta es la pantalla del \(mensaje)")
+                            }
+                            label: {
+                                PrevistaMensaje(mensaje: mensaje)
+                                    .padding()
+                                
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+                
         
         Spacer()
         
@@ -36,9 +55,11 @@ struct pantalla_basica: View {
             }
         
         NavigationLink{
+            RegistrarUsuario()
             //que pantalla debe sobreponer
         }
-        Label:{
+        label:{
+            Text("Agregar usuario")
             //como debe de verse el boton
         }
         

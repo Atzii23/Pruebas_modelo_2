@@ -14,7 +14,7 @@ struct pruebas_modelo_2App: App {
     var body: some Scene {
         WindowGroup {
             NavegadorBasico()
-                .environmentObject(controlador)
+                .environment(controlador)
         }
     }
 }
