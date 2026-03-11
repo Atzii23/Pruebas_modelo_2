@@ -31,14 +31,25 @@ struct RegistrarUsuario: View{
             Text("hay un error, resuelvelo")
         }
         
-        VStack{
+        VStack(spacing: 20){
             //TextField("Nombre: ", text: $nombre)
+            Text("Agregar nuevo usuario")
+                .foregroundStyle(Color.blue)
+                .bold()
+               
             CampoTexto(
                 entrada: $nombre,
                 placeholder: "Nombre",
                 error: error,
                 id: CamposRegistrarUsuario.nombre.rawValue
             )
+            .padding(10)
+            .background(Color.grisBajo)
+            .cornerRadius(20)
+            .overlay{
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1)
+            }
             
             //TextField("Apodo: ", text: $apodo)
             CampoTexto(
@@ -47,6 +58,15 @@ struct RegistrarUsuario: View{
                 error: error,
                 id: CamposRegistrarUsuario.apodo.rawValue
             )
+            .padding(10)
+            .background(Color.grisBajo)
+            .cornerRadius(20)
+            .overlay{
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1)
+            }
+            
+            
             
             //TextField("Edad: ", text: $edad)
             CampoTexto(
@@ -55,6 +75,13 @@ struct RegistrarUsuario: View{
                 error: error,
                 id: CamposRegistrarUsuario.edad.rawValue
             )
+            .padding(10)
+            .background(Color.grisBajo)
+            .cornerRadius(20)
+            .overlay{
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1)
+            }
             
             //TextField("Instagram: ", text: $instagram)
             CampoTexto(
@@ -63,10 +90,31 @@ struct RegistrarUsuario: View{
                 error: error,
                 id: CamposRegistrarUsuario.instagram.rawValue
             )
+            .padding(10)
+            .background(Color.grisBajo)
+            .cornerRadius(20)
+            .overlay{
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1)
+            }
             
             TextField("Edad ", text: $edad)
+                .padding(10)
+                .background(Color.grisBajo)
+                .cornerRadius(20)
+                .overlay{
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 1)
+                }
             
             TextField("Instagram ", text: $instagram)
+                .padding(10)
+                .background(Color.grisBajo)
+                .cornerRadius(20)
+                .overlay{
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 1)
+                }
             
             Button(action:{
                     validar_entradas()
@@ -77,6 +125,11 @@ struct RegistrarUsuario: View{
                             "person.fill.badge.plus"
                     )
                 }
+                .frame(width: 250)
+                .padding(10)
+                .background(Color.blue)
+                .foregroundStyle(.white)
+                .cornerRadius(15)
             }
         }
         .padding()

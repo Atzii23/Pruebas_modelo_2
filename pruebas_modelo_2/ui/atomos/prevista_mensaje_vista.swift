@@ -22,20 +22,22 @@ struct PrevistaMensaje: View {
                 HStack{
                     //Spacer()
                     Text("\(mensaje.id_usuario ?? "Anonimo" )")
-                        .background(Color.red)
+                        .foregroundStyle(Color.blue)
+                        .bold()
                 }
-                .background(Color.cyan)
+            
                 
                 Text("\(mensaje.texto)")
-                    .background(Color.yellow)
+                    
             }
             Spacer()
         }
         .padding()
         .frame(height: 100)
+        .background(Color.grisBajo)
         .overlay{
-            RoundedRectangle(cornerRadius: 25, style: .circular)
-                .stroke(.color, lineWidth: 3)
+            RoundedRectangle(cornerRadius: 20, style: .circular)
+                .stroke(.color, lineWidth: 2)
         }
     }
 }

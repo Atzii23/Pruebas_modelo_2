@@ -13,7 +13,7 @@ struct pantalla_basica: View {
     var body: some View {
         Text("Esta pantalla me mueve a la siguiente opcion")
         
-        Spacer()
+        
         ScrollView(.horizontal){
             LazyHStack{
                 ForEach(controlador.usuarios){usuario in
@@ -29,7 +29,7 @@ struct pantalla_basica: View {
                 }
             }
         }
-        
+        .frame(height: 250)
         ScrollView(.vertical){
                     LazyVStack{
                         ForEach(controlador.mensajes){ mensaje in
@@ -38,7 +38,7 @@ struct pantalla_basica: View {
                             }
                             label: {
                                 PrevistaMensaje(mensaje: mensaje)
-                                    .padding()
+                                    .padding(8)
                                 
                             }
                             .buttonStyle(.plain)
@@ -48,11 +48,23 @@ struct pantalla_basica: View {
                 
         
         Spacer()
-        
+            .frame(height: 20)
         Text("Agregar un hola mundo")
+            .foregroundStyle(Color.white)
             .onTapGesture {
                 controlador.agregar_mensajes()
             }
+            
+            .padding(15)
+            .background(Color.blue)
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .circular))
+            .overlay{
+               
+                RoundedRectangle(cornerRadius: 20, style: .circular)
+                    .stroke(.white, lineWidth: 2)
+                
+            }
+            
         
         NavigationLink{
             RegistrarUsuario()

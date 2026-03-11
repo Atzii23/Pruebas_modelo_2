@@ -23,28 +23,35 @@ struct EtiquetaUsuarioPerfil: View {
                 
                     .overlay{
                         RoundedRectangle(cornerRadius: 50, style: .circular)
-                            .stroke(style: StrokeStyle(lineWidth: 3))
+                            .stroke(style: StrokeStyle(lineWidth: 2))
                             .foregroundStyle(Color.green)
+                        
+                        Circle()
+                            .frame(width: 20)
+                            .foregroundStyle(usuario.conectado ? Color.green : Color.red)
+                            .offset(x: 35, y: 40)
                     }
                 
                     .padding(.bottom, 30)
                 
                 HStack{
-                    Circle()
-                        .frame(width: 15)
-                        .foregroundStyle(usuario.conectado ? Color.green : Color.red)
+                    
                     
                     Text("\(usuario.apodo)")
                         .foregroundStyle(Color.blue)
                 }
             }
         }
+        
+        
         .padding(25)
         .cornerRadius(25)
+        .background(Color.grisBajo)
         .overlay{
-            RoundedRectangle(cornerRadius: 25, style: .circular)
-                .stroke(style: StrokeStyle(lineWidth: 3))
+            RoundedRectangle(cornerRadius: 15, style: .circular)
+                .stroke(style: StrokeStyle(lineWidth: 2))
                 .foregroundStyle(Color.color)
+            
         }
     }
 }
